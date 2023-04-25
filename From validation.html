@@ -1,0 +1,229 @@
+<style>
+    #container{background-color:hsl(198, 64%, 44%); width:500px; padding:25px; border:1px solid #CCC; border-radius:15px;}
+    .tbl{padding:5px; margin-left:5px; width:450px;}
+    .clr{ clear:both;}
+    .tbl1{ float:left; margin-left:10px; width:150px;}
+    .san{margin-left:auto; margin-right:auto; width:500px;}
+    .sub{width:120px; height:30px; font-size:16px;}
+    </style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<div class="san">
+
+    <form name="register" action="data.php" enctype="" method="post" onsubmit="return vali();" id="register">
+    
+    <div id="container">
+    <h4 style="text-decoration:underline;">Registration from</h4>
+    <div class="tbl" >
+    <div class="tbl1" align="left" >Enter Your Name</div>
+    <div class="tbl1" align="center" style="width:50px;" >:</div>
+    <div class="tbl1" ><input type="text" name="name"  id="name"/></div>
+    <div id="san"></div>
+    <div class="clr"></div>
+    </div>
+    <div class="tbl">
+    <div class="tbl1">Enter Your ID</div>
+    <div class="tbl1" align="center" style="width:50px;">:</div>
+    <div class="tbl1"><input type="text" name="mail" /></div>
+    <div class="clr"></div>
+    </div>
+    <div class="tbl">
+    <div class="tbl1">Create Your password</div>
+    <div class="tbl1" align="center" style="width:50px;">:</div>
+    <div class="tbl1"><input type="password" name="pass"/></div>
+    <div class="clr"></div>
+    </div>
+    <div class="tbl">
+    <div class="tbl1">Mobile No:  </div>
+    <div class="tbl1" align="center" style="width:50px;">:</div>
+    <div class="tbl1"><input type="text" name="mbl"  /></div>
+    <div class="clr"></div>
+    </div>
+    
+    <div class="tbl">
+    <div class="tbl1">choose Your DOB:</div>
+    <div class="tbl1" align="center" style="width:50px;">:</div>
+    <div class="tbl1" style="width:200px;">
+    <div style="float:left;">
+    <select name="Date">
+    <option value="" selected="selected">DD</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    </select>
+    </div>
+    <div style="float:left;">
+    <select  name="Month">
+    <option value="" selected="selected">MM</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    </select>
+    </div>
+    <div style="float:left;">
+    <select name="Year">
+    <option value="" selected="selected">YYYY</option>
+    <option value="1999">1999</option>
+    <option value="2000">2000</option>
+    <option value="2001">2001</option>
+    <option value="2002">2002</option>
+    </select>
+    </div>
+    </div>
+    <div class="clr"></div>
+    </div>
+    <div class="tbl">
+    <div class="tbl1">Enter Your Address:</div>
+    <div class="tbl1" align="center" style="width:50px;">:</div>
+    <div class="tbl1"><textarea rows="3" cols="16" name="address"></textarea></div>
+    <div class="clr"></div>
+    </div>
+    <div class="tbl">
+    <div class="tbl1">choose Your location:</div>
+    <div class="tbl1" align="center" style="width:50px;">:</div>
+    <div class="tbl1">
+    <select style="width:150px;" name="location">
+    <option value="" selected="selected">select</option>
+    <optgroup label="gujarat">
+    <option value="surat">surat</option>
+    <option value="mumbai">mumbai</option>
+    <option value="rajkot">rajkot</option>
+    <option value="vadodara">vadodara</option>
+    </optgroup>
+    <optgroup label="maharastra">
+    <option value="pune">pune</option>
+    <option value="nasik">nasik</option>
+    <option value="lonavala">lonavala</option>
+    </optgroup>
+    </select></div>
+    <div class="clr"></div>
+    </div><br /><br />
+    <div class="tbl" align="center">
+    <input type="submit"  name="submit" class="sub" />
+    <input type="button" name="clear" onclick="san()" value="clear"  class="sub"/>
+    <div class="clr"></div>
+    </div>
+    </div>
+    </div>
+</head>
+</body>
+</html>
+<script type="text/javascript">
+
+    function san()
+    {
+    document.getElementById("register").reset();
+    }
+    
+    
+    function vali()
+    {
+    var name=document.register.name.value;
+    if(name=="")
+    {
+    alert('please enter ur name');
+    document.register.name.focus();
+    return false;
+    }
+    var mail=document.register.mail.value;
+    if(mail=="")
+    {
+    alert('please enter ur mail id');
+    document.register.mail.focus();
+    return false;
+    }
+    else
+    {
+     var ex=/^(([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4}))$/;
+     if(ex.test(mail)==false)
+     {
+      alert('please enter valid e mail id');
+     document.register.mail.focus()
+     return false;
+     }
+    }
+    var pass=document.register.pass.value;
+    if(pass=="")
+    {
+    alert('please enter your password');
+    document.register.pass.focus();
+    return false;
+    }
+    var passw=document.register.passw.value;
+    if(passw=="")
+    {
+    alert('Please check your confirm password');
+    document.register.passw.focus();
+    return false;
+    }
+    var mbl=document.register.mbl.value;
+    if(mbl=="")
+    {
+    alert('Enter the mobile number first');
+    document.register.mbl.focus()
+    return false;
+    }
+    else
+    {
+    var pra=/^([0-9]{10,12})$/;
+    if(pra.test(mbl)==false)
+    {
+    alert('enter valid mobile no');
+    document.register.mbl.focus();
+    return false; 
+    }
+    }
+    var dob=document.register.dob.value;
+    if(dob=="")
+    {
+    alert('Enter ur date of birth');
+    document.register.dob.focus();
+    return false;
+    }
+    var address=document.register.address.value;
+    if(address=="")
+    {
+    alert('Enter Your Address');
+    document.register.address.focus();
+    return false;
+    }
+    var location=document.register.location.value;
+    if(location=="")
+    {
+    alert('choose Your Location');
+    document.register.location.focus();
+    return false;
+    }
+    }
+    function check()
+    {
+    var p2=document.register.passw.value;
+    var p1=document.register.pass.value;
+    
+     if(p1!=p2)
+     {
+     alert('Please enter match password');
+     document.register.passw.value="";
+     document.register.pass.focus();
+     return false;
+     }
+    
+    }
+    
+    </script>
+    
+
+
